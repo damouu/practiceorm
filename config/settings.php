@@ -8,8 +8,7 @@ ini_set('display_errors', '1');
 
 // Settings
 $settings = [
-    'displayErrorDetails' => true,
-    'dbconf' => __DIR__ . '/config.ini',
+    'displayErrorDetails' => true
 ];
 
 return $settings;

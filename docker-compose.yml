@@ -5,7 +5,7 @@ networks:
     driver: bridge
 
 services:
-  prism.app:
+  api.reviews:
     image: damou/php:8-apache-mysql-composer-nano-a2enmod-public
     ports:
       - "8080:80"
@@ -16,17 +16,14 @@ services:
     networks:
       - lbs.net
     links:
-      - mysql.commande:commande
+      - mongo.cat:dbcat
 
-  mysql.commande:
-    image: damou/mysql:TD2-ORM-UPDATE
-    environment:
-      MYSQL_USER: dede
-      MYSQL_PASSWORD: dede
-      MYSQL_ROOT_PASSWORD: root
+  mongo.cat:
+    image: mongo:latest
+    working_dir: /var/data/
     ports:
-      - "3307:3306"
+      - "27018:27017"
     networks:
       - lbs.net
     volumes:
-      - ./config:/mnt/
+      - ./resources/seeds:/var/data

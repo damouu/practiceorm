@@ -17,11 +17,4 @@ $app = $container->get(App::class);
 
 //(require __DIR__ . '/middleware.php')($app);
 
-$db = new Illuminate\Database\Capsule\Manager();
-
-$config = parse_ini_file($container->get('settings')['dbconf']);
-$db->addConnection($config);
-$db->setAsGlobal();
-$db->bootEloquent();
-
 return $app;
