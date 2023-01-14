@@ -1,0 +1,11 @@
+[
+  {
+    "uuid": "8f139c04-92a4-4d06-9114-cc67e47ce45a",
+    "review": "this is a test of a review wrote by a user",
+    "id_user": 51,
+    "uuid_user": "8f139c04-92a4-4d06-9114-cc67e47ce45a",
+    "id_item": 34,
+    "uuid_item": "35c80e2d-534d-43ab-abc3-9c6222b4ed67",
+    "stars": 4
+  }
+]
