@@ -6,3 +6,5 @@ RewriteCond %{REQUEST_FILENAME} !-f
 Options -Indexes
 
 RewriteRule ^ index.php [QSA,L]
+
+php_value "error_reporting" "E_ALL & ~E_NOTICE & ~E_DEPRECATED"
