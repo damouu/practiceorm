@@ -15,11 +15,20 @@ class ReviewController
         $this->reviewRepository = $reviewRepository;
     }
 
-    public function getReviewUuid(Response $response, array $args): Response
+    public function getReviewUuid(Request $request, Response $response, array $args): Response
     {
         $review = $this->reviewRepository->getReviewUuid($args['uuid']);
-        $response->getBody()->write($review);
-        return $response->withHeader('Content-Type', 'application/json');
+        $reviewf = array("stars" => $review->stars, "comment" => trim($review->comment), "uuid_review" => $review->uuid_review, "uuid_item" => $review->uuid_item,);
+        try {
+            $response->getBody()->write(json_encode([
+                "type" => "collection",
+                "count" => 1,
+                "size" => 1,
+                "review" => $reviewf
+            ], JSON_THROW_ON_ERROR));
+        } catch (\JsonException $e) {
+        }
+        return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
     }
 
     public function postReview(Request $request, Response $response): Response
