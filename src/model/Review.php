@@ -8,23 +8,14 @@ class Review extends AbstractModel
 {
     protected $collection = 'reviews';
 
-    /** @ODM\Field(type="int") @ODM\Index */
-    protected $deletedAt;
-
-    /**
-     * @return mixed
-     */
-    public function getDeletedAt()
+    public function getdeleted_at()
     {
         return $this->deletedAt;
     }
 
-    /**
-     * @param mixed $deletedAt
-     */
-    public function setDeletedAt($deletedAt): void
+    public function setdeleted_at($deletedAt): void
     {
-        $this->deletedAt = $deletedAt;
+        $this->deleted_at = $deletedAt;
     }
 
     public function getUuidReview(): string
