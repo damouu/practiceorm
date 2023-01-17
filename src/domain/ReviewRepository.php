@@ -9,7 +9,11 @@ class ReviewRepository
 {
     public function getReviewUuid(string $uuid): ?Review
     {
-        return Review::where(['uuid_review' => $uuid])->first();
+        $cursor = Review::where(['uuid_review' => $uuid]);
+        if ($cursor->valid()) {
+            return $cursor->first();
+        }
+        return null;
     }
 
     public function postReview(string $data): void
